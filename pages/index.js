@@ -7,15 +7,17 @@ const Index = ({data}) => {
   const quotes = data.quotes
   const [index,setIndex] = useState(0)
 
-  useEffect(()=>{
+  const setQuoteRandom = () => {
     setIndex(Math.floor(Math.random() * 50))
-  },[])
+  }
+
+  useEffect(setQuoteRandom,[])
 
   return (
     <div className='flex flex-col h-screen'>
       <Heading />
       <Quote text={quotes[index]} />
-      <RandomButton />
+      <RandomButton handleClick={setQuoteRandom} />
     </div>
   )
 }
