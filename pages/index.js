@@ -1,9 +1,10 @@
 import React from 'react'
+import Heading from '@/components/Heading'
 
 const Index = () => {
   return (
-    <div>
-      
+    <div className='flex flex-col h-screen'>
+      <Heading />
     </div>
   )
 }
