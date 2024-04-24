@@ -26,8 +26,8 @@ export async function getServerSideProps() {
   const getData = async (link, headers) => {
     const res = await fetch(link,
       {
-        method:"GET",
-        headers:headers
+        method: "GET",
+        headers: headers
       }
     )
     const data = await res.json()
@@ -36,10 +36,10 @@ export async function getServerSideProps() {
 
   // Fetch quotes
   const quotes = await getData(`https://make-me-feel-better.vercel.app/api/getQuotes`, {})
-  const songs = await getData(`https://customer.api.soundcharts.com/api/v2/chart/tiktok/music/weekly/ranking/latest?offset=0&limit=100"`,{
+  const songs = await getData(`https://customer.api.soundcharts.com/api/v2/chart/tiktok/music/weekly/ranking/latest?offset=0&limit=100"`, {
     'x-app-id': 'soundcharts',
     'x-api-key': 'soundcharts'
-})
+  })
 
   // Pass data to the page via props
   return { props: { data: quotes, songs } }
