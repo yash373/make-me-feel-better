@@ -3,7 +3,7 @@ import Heading from '@/components/Heading'
 import Quote from '@/components/Quote'
 import RandomButton from '@/components/RandomButton'
 
-const Index = ({ data, songs }) => {
+const Index = ({ data }) => {
   const quotes = data.quotes
   const [index, setIndex] = useState(0)
 
@@ -18,6 +18,7 @@ const Index = ({ data, songs }) => {
       <Heading />
       <Quote text={quotes[index]} />
       <RandomButton handleClick={setQuoteRandom} />
+      <audio loop className='mx-auto my-auto' controls src='/Close Eyes (Slowed + Reverb).mp3' />
     </div>
   )
 }
@@ -36,13 +37,13 @@ export async function getServerSideProps() {
 
   // Fetch quotes
   const quotes = await getData(`https://make-me-feel-better.vercel.app/api/getQuotes`, {})
-  const songs = await getData(`https://customer.api.soundcharts.com/api/v2/chart/tiktok/music/weekly/ranking/latest?offset=0&limit=100"`, {
-    'x-app-id': 'soundcharts',
-    'x-api-key': 'soundcharts'
-  })
+  // const songs = await getData(`https://customer.api.soundcharts.com/api/v2/chart/tiktok/music/weekly/ranking/latest?offset=0&limit=100"`, {
+  //   'x-app-id': 'soundcharts',
+  //   'x-api-key': 'soundcharts'
+  // })
 
   // Pass data to the page via props
-  return { props: { data: quotes, songs } }
+  return { props: { data: quotes } }
 }
 
 export default Index
