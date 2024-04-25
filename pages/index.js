@@ -18,7 +18,7 @@ const Index = ({ data }) => {
       <Heading />
       <Quote text={quotes[index]} />
       <RandomButton handleClick={setQuoteRandom} />
-      <audio loop className='mx-auto my-auto' controls src='/music.mp3' />
+      <audio loop className='mx-auto my-auto' controls src='https://ia804609.us.archive.org/2/items/close-eyes-slowed-reverb/Close%20Eyes%20%28Slowed%20%2B%20Reverb%29.mp3' />
     </div>
   )
 }
